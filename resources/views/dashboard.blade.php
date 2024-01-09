@@ -37,52 +37,10 @@
       <span class="w-full flex border border-[rgba(0,0,0,0.25)] my-4"></span>
 
       {{-- Fed --}}
-      <div class="flex flex-col p-4 rounded-md border border-[rgba(0,0,0,1)]">
-        {{-- Fed-Person --}}
-        <div class="w-full flex items-center gap-x-3">
-          <div class="w-8 h-8 bg-gray-400 rounded-full"></div>
-          <span class="font-bold">James Bond</span>
-        </div>
-
-        {{-- Fed-Content --}}
-        <div class="text-sm mt-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque similique tempora fugiat corporis enim
-          aspernatur sequi et consequuntur exercitationem. Magni repellendus id expedita. Harum veniam culpa officiis ipsa
-          iusto in!
-        </div>
-
-        {{-- Fed-Stats --}}
-        <div class="flex justify-between text-xs font-semibold mt-2">
-          <div>100</div>
-          <div>9/1/2024</div>
-        </div>
-
-        {{-- Fed-Comment-Form --}}
-        <form class="mt-6">
-          <textarea name="comment" rows="1" class="w-full px-3 py-2 border border-[rgba(0,0,0,0.5)] rounded-md text-sm"></textarea>
-          <x-button type="submit" class="w-fit rounded-md text-sm">Post Comment</x-button>
-        </form>
-
-        {{-- Divider --}}
-        <span class="w-full flex border border-[rgba(0,0,0,0.25)] my-4"></span>
-
-        {{-- Fed-Comment --}}
-        <div class="flex flex-col pl-4">
-          {{-- Fed-Comment-Person --}}
-          <div class="w-full flex items-center gap-x-3">
-            <div class="w-6 h-6 bg-gray-400 rounded-full"></div>
-            <span class="text-sm font-bold">Bames Jond</span>
-            <span class="text-xs ml-auto">3 hours ago</span>
-          </div>
-
-          {{-- Fed-Comment-Content --}}
-          <div class="text-xs mt-4">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque similique tempora fugiat corporis enim
-            aspernatur sequi et consequuntur exercitationem. Magni repellendus id expedita. Harum veniam culpa officiis
-            ipsa
-            iusto in!
-          </div>
-        </div>
+      <div class="flex flex-col gap-y-4">
+        @foreach ($feds as $fed)
+          <x-fed :data="$fed" />
+        @endforeach
       </div>
     </div>
 

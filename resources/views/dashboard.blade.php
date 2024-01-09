@@ -32,6 +32,9 @@
         @foreach ($feds as $fed)
           <x-fed :data="$fed" />
         @endforeach
+
+        {{-- Pagination --}}
+        {{ $feds->links('pagination::tailwind') }}
       </div>
     </div>
 

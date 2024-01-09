@@ -10,7 +10,7 @@ class DashboardController extends Controller
   public function index()
   {
     return view('dashboard', [
-      'feds' => Fed::orderBy('created_at', 'DESC')->get()
+      'feds' => Fed::orderBy('created_at', 'DESC')->paginate(5)
     ]);
   }
 }

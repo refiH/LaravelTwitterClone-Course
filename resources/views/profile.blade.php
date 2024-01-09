@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  Laravel
+  Profile
 </body>
 
 </html>

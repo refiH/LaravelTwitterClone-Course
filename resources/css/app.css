@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Nunito Sans';
+}
+
+.section {
+  @apply flex w-full max-w-[60rem] items-center mx-auto py-4
+}

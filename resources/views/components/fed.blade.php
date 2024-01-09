@@ -1,6 +1,6 @@
 @props(['data' => ''])
 
-<div class="p-4 rounded-md border border-[rgba(0,0,0,0.25)]">
+<div class="max-w-[464px] p-4 rounded-md border border-[rgba(0,0,0,0.5)]">
   {{-- Fed-Person --}}
   <div class="w-full flex items-center gap-x-3">
     <div class="w-8 h-8 bg-gray-400 rounded-full"></div>
@@ -8,7 +8,7 @@
   </div>
 
   {{-- Fed-Content --}}
-  <div class="text-sm mt-4">
+  <div class="text-sm mt-4 break-words">
     {{ $data->content }}
   </div>
 

@@ -1,4 +1,4 @@
-<div class="flex flex-col pl-4">
+<div class="flex flex-col px-2">
   {{-- Fed-Comment-Person --}}
   <div class="w-full flex items-center gap-x-3">
     <div class="w-6 h-6 bg-gray-400 rounded-full"></div>

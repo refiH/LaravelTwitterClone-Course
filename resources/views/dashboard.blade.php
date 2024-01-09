@@ -19,19 +19,10 @@
     {{-- Main --}}
     <div class="h-fit flex-[2_2_0%]">
       {{-- Alert --}}
-      <div class="flex justify-between p-4 text-sm rounded-md border border-[rgba(0,0,0,0.5)]">
-        Fed created succesfully.
-        <button class="font-bold">X</button>
-      </div>
+      <x-alert message="Fed created succesfully" />
 
       {{-- Fed Form --}}
-      <form class="flex flex-col gap-y-1 mt-4">
-        <span class="text-xl font-semibold">
-          Share your feds
-        </span>
-        <textarea name="share" rows="3" class="px-3 py-2 border border-[rgba(0,0,0,0.5)] rounded-md text-sm"></textarea>
-        <x-button type="submit" class="w-fit rounded-md">Share</x-button>
-      </form>
+      <x-submit-fed />
 
       {{-- Divider --}}
       <span class="w-full flex border border-[rgba(0,0,0,0.25)] my-4"></span>

@@ -5,6 +5,13 @@
   <div class="w-full flex items-center gap-x-3">
     <div class="w-8 h-8 bg-gray-400 rounded-full"></div>
     <span class="font-bold">James Bond</span>
+
+    {{-- Fed-Delete --}}
+    <form method="POST" action="{{ route('feds.destroy', $data->id) }}" class="ml-auto">
+      @csrf
+      @method('delete')
+      <x-button class="text-sm !px-2 rounded-sm bg-red-700 hover:bg-red-800">X</x-button>
+    </form>
   </div>
 
   {{-- Fed-Content --}}

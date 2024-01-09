@@ -13,10 +13,17 @@ class FedController extends Controller
       'content' => 'required|min:3|max:255'
     ]);
 
-    $idea = Fed::create([
+    Fed::create([
       'content' => request()->get('content', '')
     ]);
 
-    return redirect()->route('dashboard')->with('success', 'Idea created successfully!');
+    return redirect()->route('dashboard')->with('success', 'Fed created successfully!');
+  }
+
+  public function destroy($id)
+  {
+    Fed::where('id', $id)->firstOrFail()->delete();
+
+    return redirect()->route('dashboard')->with('success', 'Fed deleted successfully!');
   }
 }

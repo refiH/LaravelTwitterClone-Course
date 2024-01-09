@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FedController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::post('/fed', [FedController::class, 'store'])->name('fed.create');
+
+Route::post('/feds', [FedController::class, 'store'])->name('feds.store');
+
+Route::delete('/feds/{id}', [FedController::class, 'destroy'])->name('feds.destroy');

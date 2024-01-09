@@ -1,4 +1,4 @@
-<form action="{{ route('fed.create') }}" method="POST" class="flex flex-col gap-y-1">
+<form action="{{ route('feds.store') }}" method="POST" class="flex flex-col gap-y-1">
   @csrf
   <span class="text-xl font-semibold">
     Share your feds

@@ -13,6 +13,6 @@ class FedController extends Controller
       'content' => request()->get('content', '')
     ]);
 
-    return redirect()->route('dashboard');
+    return redirect()->route('dashboard')->with('success', 'Idea created successfully!');
   }
 }

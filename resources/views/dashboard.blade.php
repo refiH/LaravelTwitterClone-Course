@@ -19,7 +19,7 @@
     {{-- Main --}}
     <div class="h-fit flex-[2_2_0%]">
       {{-- Alert --}}
-      <x-alert message="Fed created succesfully" />
+      <x-alert />
 
       {{-- Fed Form --}}
       <x-submit-fed />
@@ -38,8 +38,8 @@
     {{-- Right --}}
     <div class="sticky top-20 h-fit flex-1">
       {{-- Search Box --}}
-      <form class="flex flex-col rounded-md border border-[rgba(0,0,0,0.5)] px-4 py-2">
-        <input type="text" name="search" class="my-2 rounded-md px-2 py-1" />
+      <form class="flex flex-col rounded-md border border-[rgba(0,0,0,0.5)] p-4">
+        <input type="text" name="search" class="mb-2 rounded-md px-2 py-1" />
         <x-button type="submit" class="w-fit rounded-md">Search</x-button>
       </form>
 

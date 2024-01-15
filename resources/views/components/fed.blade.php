@@ -10,8 +10,10 @@
     <form method="POST" action="{{ route('feds.destroy', $data->id) }}" class="ml-auto">
       @csrf
       @method('delete')
+      <a class="mr-2 text-sm underline" href="{{ route('feds.show', $data->id) }}">View</a>
       <x-button class="text-sm !px-2 rounded-sm bg-red-700 hover:bg-red-800">X</x-button>
     </form>
+
   </div>
 
   {{-- Fed-Content --}}

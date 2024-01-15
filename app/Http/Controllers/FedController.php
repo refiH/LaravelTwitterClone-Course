@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class FedController extends Controller
 {
+  public function show(Fed $fed)
+  {
+    return view('feds.show', compact('fed'));
+  }
+
   public function store()
   {
     request()->validate([
@@ -20,9 +25,9 @@ class FedController extends Controller
     return redirect()->route('dashboard')->with('success', 'Fed created successfully!');
   }
 
-  public function destroy($id)
+  public function destroy(Fed $fed)
   {
-    Fed::where('id', $id)->firstOrFail()->delete();
+    $fed->delete();
 
     return redirect()->route('dashboard')->with('success', 'Fed deleted successfully!');
   }

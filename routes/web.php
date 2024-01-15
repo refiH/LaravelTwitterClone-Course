@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::post('/feds', [FedController::class, 'store'])->name('feds.store');
+Route::get('/feds/{fed}', [FedController::class, 'show'])->name('feds.show');
 
-Route::delete('/feds/{id}', [FedController::class, 'destroy'])->name('feds.destroy');
+Route::delete('/feds/{fed}', [FedController::class, 'destroy'])->name('feds.destroy');

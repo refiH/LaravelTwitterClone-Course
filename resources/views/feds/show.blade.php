@@ -7,9 +7,12 @@
 
     {{-- Main --}}
     <div class="h-fit flex-[2_2_0%]">
+      {{-- Alert --}}
+      <x-alert />
+
       {{-- Fed --}}
       <div class="flex flex-col gap-y-4">
-        <x-fed :data="$fed" />
+        <x-fed :data="$fed" :edittable="$editing ?? false" />
       </div>
     </div>
 

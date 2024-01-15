@@ -1,4 +1,4 @@
-@props(['data' => ''])
+@props(['data' => '', 'edittable' => ''])
 
 <div class="max-w-[464px] p-4 rounded-md border border-[rgba(0,0,0,0.5)]">
   {{-- Fed-Person --}}
@@ -10,6 +10,7 @@
     <form method="POST" action="{{ route('feds.destroy', $data->id) }}" class="ml-auto">
       @csrf
       @method('delete')
+      <a class="mr-2 text-sm underline" href="{{ route('feds.edit', $data->id) }}">Edit</a>
       <a class="mr-2 text-sm underline" href="{{ route('feds.show', $data->id) }}">View</a>
       <x-button class="text-sm !px-2 rounded-sm bg-red-700 hover:bg-red-800">X</x-button>
     </form>
@@ -18,20 +19,38 @@
 
   {{-- Fed-Content --}}
   <div class="text-sm mt-4 break-words">
-    {{ $data->content }}
+    @if ($edittable)
+      <form action="{{ route('feds.update', $data->id) }}" method="POST" class="flex flex-col gap-y-1">
+        @csrf
+        @method('PUT')
+        <textarea name="content" rows="3" class="px-3 py-2 border border-[rgba(0,0,0,0.5)] rounded-md text-sm">{{ $data->content }}</textarea>
+
+        @error('content')
+          <span class="text-xs text-red-500"> {{ $message }} </span>
+        @enderror
+
+        <x-button type="submit" class="w-fit rounded-md mt-2">Edit</x-button>
+      </form>
+    @else
+      {{ $data->content }}
+    @endif
   </div>
 
   {{-- Fed-Stats --}}
-  <div class="flex justify-between text-xs font-semibold mt-2">
-    <div>{{ $data->likes }}</div>
-    <div>{{ $data->created_at }}</div>
-  </div>
+  @if (!$edittable)
+    <div class="flex justify-between text-xs font-semibold mt-2">
+      <div>{{ $data->likes }}</div>
+      <div>{{ $data->created_at }}</div>
+    </div>
+  @endif
 
   {{-- Fed-Comment-Form --}}
-  <form class="mt-6">
-    <textarea name="comment" rows="1" class="w-full px-3 py-2 border border-[rgba(0,0,0,0.5)] rounded-md text-sm"></textarea>
-    <x-button type="submit" class="w-fit rounded-md text-sm mt-2">Post Comment</x-button>
-  </form>
+  @if (!$edittable)
+    <form class="mt-6">
+      <textarea name="comment" rows="1" class="w-full px-3 py-2 border border-[rgba(0,0,0,0.5)] rounded-md text-sm"></textarea>
+      <x-button type="submit" class="w-fit rounded-md text-sm mt-2">Post Comment</x-button>
+    </form>
+  @endif
 
   {{-- Divider --}}
   <span class="w-full flex border border-[rgba(0,0,0,0.25)] my-4"></span>

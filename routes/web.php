@@ -15,9 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// view
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+// post
 Route::post('/feds', [FedController::class, 'store'])->name('feds.store');
+
+// get
 Route::get('/feds/{fed}', [FedController::class, 'show'])->name('feds.show');
 
+// edit
+Route::get('/feds/{fed}/edit', [FedController::class, 'edit'])->name('feds.edit');
+Route::put('/feds/{fed}', [FedController::class, 'update'])->name('feds.update');
+
+// delete
 Route::delete('/feds/{fed}', [FedController::class, 'destroy'])->name('feds.destroy');

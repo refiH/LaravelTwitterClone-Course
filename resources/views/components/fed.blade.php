@@ -1,4 +1,4 @@
-@props(['data' => '', 'edittable' => ''])
+@props(['data' => '', 'edittable' => '', 'allowComment' => ''])
 
 <div class="max-w-[464px] p-4 rounded-md border border-[rgba(0,0,0,0.5)]">
   {{-- Fed-Person --}}
@@ -45,7 +45,7 @@
   @endif
 
   {{-- Fed-Comment-Form --}}
-  @if (!$edittable)
+  @if (!$edittable && $allowComment)
     <form action="{{ route('feds.comments.store', $data->id) }}" method="POST" class="mt-6">
       @csrf
       <textarea name="content" rows="1" class="w-full px-3 py-2 border border-[rgba(0,0,0,0.5)] rounded-md text-sm"></textarea>
@@ -54,7 +54,9 @@
   @endif
 
   {{-- Divider --}}
-  <span class="w-full flex border border-[rgba(0,0,0,0.2)] my-4"></span>
+  @if (count($data->comments) !== 0)
+    <span class="w-full flex border border-[rgba(0,0,0,0.2)] my-4"></span>
+  @endif
 
   {{-- Fed-Comment --}}
   <div class="flex flex-col gap-6">

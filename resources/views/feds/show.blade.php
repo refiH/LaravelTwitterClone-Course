@@ -12,7 +12,7 @@
 
       {{-- Fed --}}
       <div class="flex flex-col gap-y-4">
-        <x-fed :data="$fed" :edittable="$editing ?? false" />
+        <x-fed :data="$fed" :edittable="$editing ?? false" :allowComment="$allowComment ?? false" />
       </div>
     </div>
 

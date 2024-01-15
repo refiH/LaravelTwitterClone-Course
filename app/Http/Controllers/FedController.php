@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Fed;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class FedController extends Controller
 {
   // get
   public function show(Fed $fed)
   {
-    return view('feds.show', compact('fed'));
+    $allowComment = true;
+
+    return view('feds.show', compact('fed', 'allowComment'));
   }
 
   // post

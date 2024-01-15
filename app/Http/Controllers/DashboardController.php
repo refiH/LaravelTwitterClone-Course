@@ -9,8 +9,14 @@ class DashboardController extends Controller
 {
   public function index()
   {
+    $feds = Fed::orderBy('created_at', 'DESC');
+
+    if (request()->has('search')) {
+      $feds = $feds->where('content', 'like', '%' . request()->get('search', '') . '%');
+    }
+
     return view('dashboard', [
-      'feds' => Fed::orderBy('created_at', 'DESC')->paginate(5)
+      'feds' => $feds->paginate(5)
     ]);
   }
 }

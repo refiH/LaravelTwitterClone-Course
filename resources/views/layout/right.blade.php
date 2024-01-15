@@ -1,6 +1,7 @@
 <div class="sticky top-20 h-fit flex-1">
   {{-- Search Box --}}
-  <form class="flex flex-col rounded-md border border-[rgba(0,0,0,0.5)] p-4">
+  <form action="{{ route('dashboard') }}" method="GET"
+    class="flex flex-col rounded-md border border-[rgba(0,0,0,0.5)] p-4">
     <input type="text" name="search" class="mb-2 rounded-md px-2 py-1" />
     <x-button type="submit" class="w-fit rounded-md">Search</x-button>
   </form>

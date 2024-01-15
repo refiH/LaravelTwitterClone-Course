@@ -46,15 +46,20 @@
 
   {{-- Fed-Comment-Form --}}
   @if (!$edittable)
-    <form class="mt-6">
-      <textarea name="comment" rows="1" class="w-full px-3 py-2 border border-[rgba(0,0,0,0.5)] rounded-md text-sm"></textarea>
+    <form action="{{ route('feds.comments.store', $data->id) }}" method="POST" class="mt-6">
+      @csrf
+      <textarea name="content" rows="1" class="w-full px-3 py-2 border border-[rgba(0,0,0,0.5)] rounded-md text-sm"></textarea>
       <x-button type="submit" class="w-fit rounded-md text-sm mt-2">Post Comment</x-button>
     </form>
   @endif
 
   {{-- Divider --}}
-  <span class="w-full flex border border-[rgba(0,0,0,0.25)] my-4"></span>
+  <span class="w-full flex border border-[rgba(0,0,0,0.2)] my-4"></span>
 
   {{-- Fed-Comment --}}
-  <x-fed-comment />
+  <div class="flex flex-col gap-6">
+    @foreach ($data->comments as $comment)
+      <x-fed-comment :comment="$comment" />
+    @endforeach
+  </div>
 </div>
